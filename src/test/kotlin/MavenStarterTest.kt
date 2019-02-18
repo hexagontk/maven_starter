@@ -1,6 +1,6 @@
 package org.example
 
-import com.hexagonkt.client.Client
+import com.hexagonkt.http.client.Client
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

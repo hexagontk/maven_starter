@@ -10,8 +10,8 @@
   <properties>
     <main.class>org.example.MavenStarterKt</main.class>
 
-    <kotlin.version>1.3.10</kotlin.version>
-    <hexagon.version>0.24.6</hexagon.version>
+    <kotlin.version>1.3.21</kotlin.version>
+    <hexagon.version>0.25.3</hexagon.version>
 
     <junit.version>4.12</junit.version>
     <logback.version>1.2.3</logback.version>
@@ -31,7 +31,7 @@
   <dependencies>
     <dependency>
       <groupId>com.hexagonkt</groupId>
-      <artifactId>server_jetty</artifactId>
+      <artifactId>http_server_jetty</artifactId>
       <version>${hexagon.version}</version>
     </dependency>
 
@@ -49,7 +49,7 @@
     </dependency>
     <dependency>
       <groupId>com.hexagonkt</groupId>
-      <artifactId>port_client</artifactId>
+      <artifactId>port_http_client</artifactId>
       <version>${hexagon.version}</version>
       <scope>test</scope>
     </dependency>
