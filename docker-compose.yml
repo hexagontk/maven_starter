@@ -2,7 +2,8 @@
 version: '3'
 
 services:
-  hexmaven:
+
+  maven_starter:
     build:
       context: .
     ports:
