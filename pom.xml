@@ -4,15 +4,15 @@
 
   <groupId>org.example</groupId>
   <artifactId>maven_starter</artifactId>
-  <version>0.1</version>
+  <version>1.0.0</version>
   <description>Service's description</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <main.class>org.example.MavenStarterKt</main.class>
 
-    <kotlin.version>1.3.21</kotlin.version>
-    <hexagon.version>0.25.9</hexagon.version>
+    <kotlin.version>1.3.31</kotlin.version>
+    <hexagon.version>1.0.0</hexagon.version>
 
     <junit.version>4.12</junit.version>
     <logback.version>1.2.3</logback.version>
