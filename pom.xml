@@ -15,31 +15,24 @@
 
   <properties>
     <main.class>org.example.MavenStarterKt</main.class>
-    <junit.version>4.12</junit.version>
+    <junit.version>5.6.2</junit.version>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
       <groupId>com.hexagonkt</groupId>
       <artifactId>http_server_jetty</artifactId>
-      <version>${hexagon.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.hexagonkt</groupId>
       <artifactId>http_client_ahc</artifactId>
-      <version>${hexagon.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

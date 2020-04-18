@@ -2,19 +2,22 @@ package org.example
 
 import com.hexagonkt.http.client.Client
 import com.hexagonkt.http.client.ahc.AhcAdapter
-import org.junit.After
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS
 
+@TestInstance(PER_CLASS)
 class MavenStarterTest {
 
     private val client by lazy { Client(AhcAdapter(), "http://localhost:${server.runtimePort}") }
 
-    @Before fun startup() {
+    @BeforeAll fun startup() {
         main()
     }
 
-    @After fun shutdown() {
+    @AfterAll fun shutdown() {
         server.stop()
     }
 
