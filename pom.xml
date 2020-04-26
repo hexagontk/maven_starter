@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagonkt</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>1.2.12</version>
+    <version>1.2.13</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -18,10 +18,18 @@
     <junit.version>5.6.2</junit.version>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>hexagon</id>
+      <url>https://dl.bintray.com/hexagonkt/hexagon</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>com.hexagonkt</groupId>
       <artifactId>http_server_jetty</artifactId>
+      <version>${hexagon.version}</version>
     </dependency>
 
     <dependency>
@@ -33,6 +41,7 @@
     <dependency>
       <groupId>com.hexagonkt</groupId>
       <artifactId>http_client_ahc</artifactId>
+      <version>${hexagon.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
