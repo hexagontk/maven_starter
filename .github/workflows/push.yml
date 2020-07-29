@@ -1,0 +1,30 @@
+
+name: Push
+
+on: push
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # SET UP
+      - name: Check Out
+        uses: actions/checkout@v2
+
+      - name: Install Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      # BUILD
+      - name: Build Project
+        run: ./mvnw install

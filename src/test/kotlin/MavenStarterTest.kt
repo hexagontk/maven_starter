@@ -2,33 +2,31 @@ package org.example
 
 import com.hexagonkt.http.client.Client
 import com.hexagonkt.http.client.ahc.AhcAdapter
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
-import org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.nulls.shouldNotBeNull
+import io.kotest.matchers.shouldBe
 
-@TestInstance(PER_CLASS)
-class MavenStarterTest {
+class MavenStarterTest : StringSpec({
 
-    private val client by lazy { Client(AhcAdapter(), "http://localhost:${server.runtimePort}") }
+    val client by lazy { Client(AhcAdapter(), "http://localhost:${server.runtimePort}") }
 
-    @BeforeAll fun startup() {
+    beforeSpec {
         main()
     }
 
-    @AfterAll fun shutdown() {
+    afterSpec {
         server.stop()
     }
 
-    @Test fun `HTTP request returns proper status, headers and body`() {
+    "HTTP request returns proper status, headers and body" {
         val response = client.get("/text")
+        val content = response.body
 
-        assert(response.headers["Date"] != null)
-        assert(response.headers["Server"] != null)
-        assert(response.headers["Transfer-Encoding"] != null)
-        assert(response.headers["Content-Type"] == listOf("text/plain"))
+        response.headers["Date"].shouldNotBeNull()
+        response.headers["Server"].shouldNotBeNull()
+        response.headers["Transfer-Encoding"].shouldNotBeNull()
+        response.headers["Content-Type"]?.first() shouldBe "text/plain"
 
-        assert("Hello, World!" == response.body)
+        "Hello, World!" shouldBe content
     }
-}
+})

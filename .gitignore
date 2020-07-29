@@ -1,7 +1,14 @@
 
+# Private / Local
+private_*
+local_*
+
 # Maven
 target/
-local*
+pom.xml.*
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
 
 # Eclipse
 .settings/
@@ -23,6 +30,11 @@ log/
 .attach_pid*
 hs_err_pid*
 
-# Others
-.DS_Store
+# Other Tools
+node_modules/
 .java-version
+package-lock.json
+
+# System Files
+.DS_Store
+Thumbs.db
