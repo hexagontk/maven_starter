@@ -15,13 +15,11 @@ class MavenStarterTest {
 
     private val client by lazy { Client(AhcAdapter(), "http://localhost:${server.runtimePort}") }
 
-    @BeforeAll
-    fun beforeSpec() {
+    @BeforeAll fun beforeSpec() {
         main()
     }
 
-    @AfterAll
-    fun afterSpec() {
+    @AfterAll fun afterSpec() {
         server.stop()
     }
 
@@ -30,8 +28,8 @@ class MavenStarterTest {
         val content = response.body
 
         assertNotNull(response.headers["Server"])
-        assertEquals(response.headers["Content-Type"]?.first(), "text/plain")
+        assertEquals("text/plain", response.headers["Content-Type"]?.first())
 
-        assertEquals("Hello, World!", content)
+        assertEquals(content, "Hello, World!")
     }
 }
