@@ -1,5 +1,5 @@
 
-version: '3'
+version: '3.8'
 
 services:
 
@@ -7,4 +7,4 @@ services:
     build:
       context: .
     ports:
-      - 9999:9090
+      - "9999:9090"

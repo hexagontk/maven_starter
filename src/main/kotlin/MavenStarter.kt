@@ -2,12 +2,10 @@ package org.example
 
 import com.hexagonkt.http.server.*
 import com.hexagonkt.http.server.jetty.JettyServletAdapter
-import com.hexagonkt.logging.LoggingManager
-import com.hexagonkt.logging.Slf4jJulLoggingAdapter
+import com.hexagonkt.core.logging.LoggingManager
+import com.hexagonkt.logging.slf4j.jul.Slf4jJulLoggingAdapter
 
-internal val server: Server by lazy { createServer() }
-
-internal fun createServer(): Server =
+internal val server: Server by lazy {
     Server(JettyServletAdapter()) {
         before {
             response.headers["Server"] = "Servlet/3.1"
@@ -17,6 +15,7 @@ internal fun createServer(): Server =
             ok("Hello, World!", "text/plain")
         }
     }
+}
 
 internal fun main() {
     LoggingManager.adapter = Slf4jJulLoggingAdapter

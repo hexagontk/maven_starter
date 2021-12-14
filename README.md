@@ -1,7 +1,7 @@
 
 Maven Starter Application
 =========================
-This is an Hexagon service created from a template.
+This is a Hexagon service created from a template.
 
 Software Requirements
 ---------------------
