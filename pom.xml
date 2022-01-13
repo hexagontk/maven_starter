@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagonkt</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>1.4.11</version>
+    <version>2.0.0</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -39,7 +39,7 @@
     </dependency>
     <dependency>
       <groupId>com.hexagonkt</groupId>
-      <artifactId>http_client_ahc</artifactId>
+      <artifactId>http_client_jetty</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
