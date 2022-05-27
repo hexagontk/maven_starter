@@ -1,10 +1,8 @@
 
-Maven Starter Application
-=========================
+# Maven Starter Application
 This is a Hexagon service created from a template.
 
-Software Requirements
----------------------
+## Software Requirements
 To build the application you will need:
 * JDK 11+ for compiling the sources.
 * An Internet connection to download the dependencies.
@@ -12,8 +10,7 @@ To build the application you will need:
 To run the application:
 * JRE 11+ (JDK is not required at runtime).
 
-Development
------------
+## Development
 * Build: `./mvnw compile`
 * Rebuild: `./mvnw clean package`
 * Run: `./mvnw exec:java`
@@ -24,12 +21,10 @@ Development
 
 The reports are located in the `target` directory after building the project.
 
-Maven Wrapper Setup
--------------------
+## Maven Wrapper Setup
 You can change Gradle version in `.mvn/wrapper/maven-wrapper.properties`.
 
-Usage
------
+## Usage
 After building the project (`./mvnw package`), an archive with the application's executable JAR is
 stored in `target/<projectName>-<version>-jar-with-dependencies.jar`.
 
@@ -40,3 +35,8 @@ Logs are stored in the `log` directory inside the script's execution directory.
 
 Once the application is running, you can send a request executing:
 `curl http://localhost:9090/text`
+
+## Native Image
+```bash
+./mvnw -Pnative install
+```
