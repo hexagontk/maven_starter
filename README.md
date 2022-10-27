@@ -38,5 +38,5 @@ Once the application is running, you can send a request executing:
 
 ## Native Image
 ```bash
-./mvnw -Pnative install
+./mvnw -Pnative -Dagent install
 ```
