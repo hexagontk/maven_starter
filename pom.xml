@@ -5,19 +5,16 @@
   <parent>
     <groupId>com.hexagonkt</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>2.0.26</version>
+    <version>2.1.2</version>
   </parent>
 
   <groupId>org.example</groupId>
   <artifactId>maven_starter</artifactId>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
   <description>Service's description</description>
 
   <properties>
     <exec.mainClass>org.example.MavenStarterKt</exec.mainClass>
-    <native.maven.plugin.version>0.9.15</native.maven.plugin.version>
-    <agent>true</agent>
-    <skipNativeTests>true</skipNativeTests>
   </properties>
 
   <dependencies>
@@ -56,108 +53,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <transformers>
-                <transformer
-                  implementation=
-                    "org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
-                </transformer>
-                <transformer
-                  implementation=
-                    "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>${exec.mainClass}</mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>native</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.graalvm.buildtools</groupId>
-            <artifactId>native-maven-plugin</artifactId>
-            <version>${native.maven.plugin.version}</version>
-            <extensions>true</extensions>
-            <executions>
-              <execution>
-                <id>build-native</id>
-                <goals>
-                  <goal>build</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-              <execution>
-                <id>test-native</id>
-                <goals>
-                  <goal>test</goal>
-                </goals>
-                <phase>test</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <buildArgs>
-                <buildArg>--enable-http</buildArg>
-                <buildArg>--enable-https</buildArg>
-                <buildArg>--enable-url-protocols=classpath</buildArg>
-                <buildArg>--initialize-at-build-time=com.hexagonkt.core.ClasspathHandler</buildArg>
-
-                <!-- Netty options (not needed for Jetty) -->
-                <buildArg>--initialize-at-build-time=org.slf4j.LoggerFactory</buildArg>
-                <buildArg>--initialize-at-build-time=org.slf4j.impl.JDK14LoggerAdapter</buildArg>
-                <buildArg>--initialize-at-build-time=org.slf4j.impl.StaticLoggerBinder</buildArg>
-                <buildArg>--allow-incomplete-classpath</buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.internal.tcnative.AsyncSSLPrivateKeyMethod
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.internal.tcnative.SSL
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.internal.tcnative.CertificateVerifier
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.OpenSslPrivateKeyMethod
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.ReferenceCountedOpenSslEngine
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.OpenSslAsyncPrivateKeyMethod
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.JettyNpnSslEngine
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.internal.tcnative.SSLPrivateKeyMethod
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.ConscryptAlpnSslEngine
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=io.netty.handler.ssl.ReferenceCountedOpenSslContext
-                </buildArg>
-                <buildArg>
-                  --initialize-at-run-time=org.bouncycastle.jsse.BCSSLEngine
-                </buildArg>
-              </buildArgs>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
