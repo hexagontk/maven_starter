@@ -7,21 +7,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
     steps:
-      # SET UP
       - name: Check Out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Java
-        uses: actions/setup-java@v2
-        with: { java-version: 11, distribution: adopt }
-      - name: Restore Cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
-
-      # PROCESS
+        uses: actions/setup-java@v3
+        with: { java-version: 17, distribution: temurin, cache: maven }
       - name: Build Project
         run: ./mvnw install

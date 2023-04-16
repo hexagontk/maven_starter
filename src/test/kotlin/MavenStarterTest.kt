@@ -1,6 +1,7 @@
 package org.example
 
 import com.hexagonkt.http.client.HttpClient
+import com.hexagonkt.http.client.HttpClientSettings
 import com.hexagonkt.http.client.jetty.JettyClientAdapter
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -15,7 +16,8 @@ import kotlin.test.assertNotNull
 class MavenStarterTest {
 
     private val client by lazy {
-        HttpClient(JettyClientAdapter(), URL("http://localhost:${server.runtimePort}"))
+        val clientSettings = HttpClientSettings(URL("http://localhost:${server.runtimePort}"))
+        HttpClient(JettyClientAdapter(), clientSettings)
     }
 
     @BeforeAll fun beforeSpec() {
