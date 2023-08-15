@@ -10,7 +10,7 @@ import com.hexagonkt.logging.slf4j.jul.Slf4jJulLoggingAdapter
 
 internal val server: HttpServer by lazy {
     HttpServer(JettyServletAdapter()) {
-        on("*") {
+        before("*") {
             send(headers = response.headers + Header("server", "Servlet/3.1"))
         }
 
