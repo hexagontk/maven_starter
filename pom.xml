@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagonkt</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -14,7 +14,7 @@
   <description>Service's description</description>
 
   <properties>
-    <hexagonVersion>3.0.0</hexagonVersion>
+    <hexagonVersion>3.0.1</hexagonVersion>
 
     <exec.mainClass>org.example.MavenStarterKt</exec.mainClass>
   </properties>
@@ -53,6 +53,10 @@
       <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
