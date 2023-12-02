@@ -1,5 +1,5 @@
 
-FROM eclipse-temurin:11-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 ENV PROJECT maven_starter
 
 USER 1000
