@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagonkt</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>3.4.4</version>
+    <version>3.5.3</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -14,7 +14,7 @@
   <description>Service's description</description>
 
   <properties>
-    <hexagonVersion>3.4.4</hexagonVersion>
+    <hexagonVersion>3.5.3</hexagonVersion>
 
     <exec.mainClass>org.example.MavenStarterKt</exec.mainClass>
   </properties>
@@ -35,10 +35,6 @@
     <dependency>
       <groupId>com.hexagonkt</groupId>
       <artifactId>http_server_jetty</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.hexagonkt</groupId>
-      <artifactId>logging_slf4j_jul</artifactId>
     </dependency>
 
     <dependency>
