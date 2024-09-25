@@ -1,10 +1,10 @@
 package org.example
 
-import com.hexagonkt.http.server.*
-import com.hexagonkt.http.server.jetty.JettyServletAdapter
-import com.hexagonkt.core.media.TEXT_PLAIN
-import com.hexagonkt.http.model.ContentType
-import com.hexagonkt.http.model.Header
+import com.hexagontk.http.server.*
+import com.hexagontk.http.server.jetty.JettyServletAdapter
+import com.hexagontk.core.media.TEXT_PLAIN
+import com.hexagontk.http.model.ContentType
+import com.hexagontk.http.model.Header
 
 internal val server: HttpServer by lazy {
     HttpServer(JettyServletAdapter()) {
