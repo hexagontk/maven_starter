@@ -3,7 +3,7 @@ package org.example
 import com.hexagontk.core.urlOf
 import com.hexagontk.http.client.HttpClient
 import com.hexagontk.http.client.HttpClientSettings
-import com.hexagontk.http.client.jetty.JettyClientAdapter
+import com.hexagontk.http.client.jetty.JettyHttpClient
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -17,7 +17,7 @@ class MavenStarterTest {
 
     private val client by lazy {
         val clientSettings = HttpClientSettings(urlOf("http://localhost:${server.runtimePort}"))
-        HttpClient(JettyClientAdapter(), clientSettings)
+        HttpClient(JettyHttpClient(), clientSettings)
     }
 
     @BeforeAll fun beforeSpec() {
