@@ -34,7 +34,7 @@
   <dependencies>
     <dependency>
       <groupId>com.hexagontk</groupId>
-      <artifactId>http_server_jetty</artifactId>
+      <artifactId>http_server_helidon</artifactId>
     </dependency>
 
     <dependency>
