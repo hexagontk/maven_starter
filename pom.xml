@@ -69,12 +69,5 @@
         </plugins>
       </build>
     </profile>
-
-    <profile>
-      <id>kotlin_lean</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-    </profile>
   </profiles>
 </project>
