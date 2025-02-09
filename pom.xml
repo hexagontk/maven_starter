@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagontk</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>4.0.0-A7</version>
+    <version>4.0.0-B3</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -14,7 +14,7 @@
   <description>Service's description</description>
 
   <properties>
-    <hexagonVersion>4.0.0-A7</hexagonVersion>
+    <hexagonVersion>4.0.0-B3</hexagonVersion>
 
     <exec.mainClass>org.example.MavenStarterKt</exec.mainClass>
   </properties>
@@ -33,13 +33,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.hexagontk</groupId>
-      <artifactId>http_server_helidon</artifactId>
+      <groupId>com.hexagontk.http</groupId>
+      <artifactId>http_server_jdk</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>com.hexagontk</groupId>
-      <artifactId>http_client_jetty</artifactId>
+      <groupId>com.hexagontk.http</groupId>
+      <artifactId>http_client_jdk</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
