@@ -1,14 +1,14 @@
 package org.example
 
-import com.hexagontk.core.urlOf
 import com.hexagontk.http.client.HttpClient
 import com.hexagontk.http.client.HttpClientSettings
-import com.hexagontk.http.client.jetty.JettyHttpClient
+import com.hexagontk.http.client.jdk.JdkHttpClient
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS
+import java.net.URI
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
@@ -16,8 +16,8 @@ import kotlin.test.assertNotNull
 class MavenStarterTest {
 
     private val client by lazy {
-        val clientSettings = HttpClientSettings(urlOf("http://localhost:${server.runtimePort}"))
-        HttpClient(JettyHttpClient(), clientSettings)
+        val clientSettings = HttpClientSettings(URI("http://localhost:${server.runtimePort}"))
+        HttpClient(JdkHttpClient(), clientSettings)
     }
 
     @BeforeAll fun beforeSpec() {
