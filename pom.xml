@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.hexagontk</groupId>
     <artifactId>kotlin_pom</artifactId>
-    <version>4.0.0-B3</version>
+    <version>4.0.1</version>
   </parent>
 
   <groupId>org.example</groupId>
@@ -14,7 +14,7 @@
   <description>Service's description</description>
 
   <properties>
-    <hexagonVersion>4.0.0-B3</hexagonVersion>
+    <hexagonVersion>4.0.1</hexagonVersion>
 
     <exec.mainClass>org.example.MavenStarterKt</exec.mainClass>
   </properties>
