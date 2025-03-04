@@ -38,6 +38,13 @@
     </dependency>
 
     <dependency>
+      <groupId>com.yworks</groupId>
+      <artifactId>yguard</artifactId>
+      <version>4.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
       <groupId>com.hexagontk.http</groupId>
       <artifactId>http_client_jdk</artifactId>
       <scope>test</scope>
@@ -53,6 +60,52 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <property
+                  name="project.jar"
+                  value=
+                    "${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar"/>
+                <property
+                  name="project.jar.original"
+                  value="${project.build.directory}/${project.build.finalName}-original.jar"/>
+                <move
+                  file="${project.jar}"
+                  tofile="${project.jar.original}"
+                  verbose="true"/>
+
+                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
+                <taskdef
+                  name="yguard"
+                  classname="com.yworks.yguard.YGuardTask"
+                  classpath="${runtime_classpath}"/>
+                <yguard>
+                  <inoutpair in="${project.jar.original}" out="${project.jar}" />
+
+<!--                  <externalclasses>-->
+<!--                    <pathelement location="${maven.dependency.com.hexagontk.jar.path}"/>-->
+<!--                  </externalclasses>-->
+
+                  <rename logfile="${project.build.directory}/${project.build.finalName}_renamelog.xml">
+                    <keep>
+                      <method name="void main(java.lang.String[])" class="${exec.mainclass}"/>
+                    </keep>
+                  </rename>
+                </yguard>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
